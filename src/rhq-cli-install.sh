@@ -3,13 +3,7 @@
 [ -f /etc/sysconfig/boxgrinder ]    && . /etc/sysconfig/boxgrinder
 [ -f /etc/sysconfig/rhq-cli ]       && . /etc/sysconfig/rhq-cli
 
-sleep=0
-while [ "x$RHQ_SERVER_IP" = "x" ]; do
-    sleep 5
-    sleep=`expr $sleep + 5`
-    [ -f /etc/sysconfig/rhq-cli ] && . /etc/sysconfig/rhq-cli
-done
-
+RHQ_SERVER_IP=127.0.0.1
 RHQ_CLI_LOCATION=http://$RHQ_SERVER_IP:7080/client/download
 RHQ_CLI_NAME=rhq-remoting-cli
 
@@ -34,8 +28,3 @@ done
 cd $RHQ_CLI_HOME
 
 unzip $RHQ_CLI_NAME-$RHQ_CLI_VERSION.zip
-
-export RHQ_CLI_JAVA_HOME=/usr/lib/jvm/jre-1.6.0
-
-$RHQ_CLI_NAME-$RHQ_CLI_VERSION/bin/rhq-cli.sh -u rhqadmin -p rhqadmin -s $RHQ_SERVER_IP -t 7080 
-

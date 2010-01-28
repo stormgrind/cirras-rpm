@@ -13,6 +13,7 @@ Source2:        import-servers.sh
 Group:          Applications/System
 Requires:       java-1.6.0-openjdk
 Requires:       unzip
+Requires:       crontab
 Requires:       initscripts
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -37,7 +38,7 @@ install -m 744 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/%{name}
 rm -Rf $RPM_BUILD_ROOT
 
 %post
-echo "sh /usr/share/%{name}/rhq-cli-install.sh" >> /etc/rc.local
+echo "sh /usr/share/%{name}/rhq-cli-install.sh &" >> /etc/rc.local
 echo '* * * * * /usr/share/%{name}/import-servers.sh' | crontab -
 
 %files
