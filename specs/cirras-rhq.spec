@@ -13,7 +13,7 @@ Source2:        import-servers.sh
 Group:          Applications/System
 Requires:       java-1.6.0-openjdk
 Requires:       unzip
-Requires:       crontab
+Requires:       cronie
 Requires:       initscripts
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
