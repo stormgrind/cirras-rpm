@@ -8,7 +8,8 @@
 
 # check if all variables are set
 
-[ "x$RHQ_SERVER_IP" = "x" ]     && exit 1
+RHQ_SERVER_IP=127.0.0.1
+
 [ "x$RHQ_SERVER_PORT" = "x" ]   && exit 1
 [ "x$RHQ_CLI_HOME" = "x" ]      && exit 1
 [ "x$RHQ_CLI_VERSION" = "x" ]   && exit 1
@@ -17,4 +18,4 @@
 
 export RHQ_CLI_JAVA_HOME=/usr/lib/jvm/jre-1.6.0
 
-$RHQ_CLI_HOME/rhq-remoting-cli-$RHQ_CLI_VERSION/bin/rhq-cli.sh -u $RHQ_CLI_USERNAME -p $RHQ_CLI_PASSWORD -s $RHQ_SERVER_IP -t $RHQ_SERVER_PORT -f /usr/share/cirras-rhq/import-servers.js
+$RHQ_CLI_HOME/rhq-remoting-cli-$RHQ_CLI_VERSION/bin/rhq-cli.sh -u $RHQ_CLI_USERNAME -p $RHQ_CLI_PASSWORD -s $RHQ_SERVER_IP -t $RHQ_SERVER_PORT -f /usr/share/cirras-rhq/import-servers.js >> /var/log/cirras-rhq/import.log

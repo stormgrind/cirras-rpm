@@ -30,6 +30,7 @@ echo "RHQ_CLI_PASSWORD=rhqadmin"        >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_n
 echo "RHQ_SERVER_PORT=7080"             >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 
 install -d -m 755 $RPM_BUILD_ROOT/usr/share/%{name}
+install -d -m 755 $RPM_BUILD_ROOT/var/log/%{name}
 install -m 744 %{SOURCE0} $RPM_BUILD_ROOT/usr/share/%{name}
 install -m 644 %{SOURCE1} $RPM_BUILD_ROOT/usr/share/%{name}
 install -m 744 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/%{name}
