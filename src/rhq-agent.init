@@ -8,4 +8,9 @@
 
 [ -f /etc/sysconfig/rhq-agent ] && . /etc/sysconfig/rhq-agent
 
+if [ "$2" = "--update" ]; then
+  # we want to clear RHQ Admin configuration
+  RHQ_AGENT_CMDLINE_OPTS="--daemon --cleanconfig"
+fi
+
 . $RHQ_AGENT_HOME/bin/rhq-agent-wrapper.sh
