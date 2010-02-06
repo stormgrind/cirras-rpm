@@ -31,6 +31,8 @@ pushd $RPM_BUILD_ROOT/usr/share/%{name}
 popd
 
 install -d -m 755 $RPM_BUILD_ROOT/var/log/%{name}
+install -d -m 755 $RPM_BUILD_ROOT/var/lock
+touch $RPM_BUILD_ROOT/var/lock/%{name}.pid
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -48,6 +50,8 @@ echo -e "thin ALL = NOPASSWD: ALL\n" >> /etc/sudoers
 
 %files
 %defattr(-,root,root)
+%attr(644, thin, thin) /var/lock/%{name}.pid
+%attr(755, thin, thin) /var/log/%{name}
 /
 
 %changelog

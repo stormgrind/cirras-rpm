@@ -1,4 +1,4 @@
-%define rhq_version 1.4.0.B01
+%define rhq_version 3.0.0.B02
 %define rhq_name rhq-cli
 
 Summary:        RHQ Helper for CirrAS
@@ -24,7 +24,7 @@ Helps with importing and configuring RHQ in CirrAS environment.
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 
 echo "RHQ_CLI_VERSION=%{rhq_version}"    > $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
-echo "RHQ_CLI_HOME=/opt/%{rhq_name}"    >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
+echo "RHQ_CLI_HOME=/opt/%{rhq_name}-%{rhq_version}"    >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_CLI_USERNAME=rhqadmin"        >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_CLI_PASSWORD=rhqadmin"        >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_SERVER_PORT=7080"             >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
@@ -40,7 +40,7 @@ rm -Rf $RPM_BUILD_ROOT
 
 %post
 echo "sh /usr/share/%{name}/rhq-cli-install.sh &" >> /etc/rc.local
-echo '* * * * * /usr/share/%{name}/import-servers.sh' | crontab -
+echo '* * * * * /usr/share/%{name}/import-servers.sh >> /var/log/%{name}/import.log' | crontab -
 
 %files
 %defattr(-,root,root)
