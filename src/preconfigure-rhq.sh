@@ -27,6 +27,9 @@ fi
 echo "Local IP address: $LOCAL_IP"
 echo "Public IP address: $PUBLIC_IP"
 
+# this will avoid false positive return from below commands
+cd /
+
 USER_CREATED=`/bin/su postgres -c "/bin/echo '\du' | /usr/bin/psql -tA" | awk -F\| '{ print $1 }' | grep $DATABASE_USER | wc -l`
 DATABASE_CREATED=`/bin/su postgres -c "/usr/bin/psql -tAl" | awk -F\| '{ print $1 }' | grep $DATABASE_NAME | wc -l`
 
