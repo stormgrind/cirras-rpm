@@ -53,8 +53,8 @@ echo "Reconfiguring rhq-server.properties file..."
 sed s/#LOCAL_IP#/$LOCAL_IP/g /usr/share/rhq/rhq-server.properties | sed s/#PUBLIC_IP#/$PUBLIC_IP/g | sed s/#DATABASE_USER#/$DATABASE_USER/g | sed s/#DATABASE_PASSWORD#/$DATABASE_PASSWORD/g | sed s/#DATABASE_NAME#/$DATABASE_NAME/g > $RHQ_HOME/bin/rhq-server.properties
 echo "File reconfigured."
 
-echo "Changing permissions in /opt/rhq/ directory..."
-chown rhq:rhq /opt/rhq/ -R
+echo "Changing permissions in $RHQ_HOME directory..."
+chown rhq:rhq $RHQ_HOME -R
 echo "Permissions changed."
 
 echo "RHQ server is preconfigured now."
