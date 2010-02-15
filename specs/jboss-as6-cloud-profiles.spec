@@ -9,10 +9,9 @@ License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
 Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-%{jboss_version}.zip
-Source1:        %{jboss_name}-gossip-jvmroute.patch
-Source2:        %{jboss_name}-mod_cluster.patch
-Source3:        %{jboss_name}-jbossws-host.patch
-
+Source1:        %{jboss_name}-mod_cluster.patch
+Source2:        %{jboss_name}-jbossws-host.patch
+Source3:        %{jboss_name}-jgroups-s3_ping.patch
 Requires:       %{jboss_name}
 BuildRequires:  patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -31,14 +30,14 @@ rm -Rf $RPM_BUILD_ROOT
 cd %{_topdir}/BUILD
 
 # create directories
-mkdir -p $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster
-mkdir -p $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group
 
 # copy profiles
 cp -R jboss-%{jboss_version}/server/default/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/
 cp -R jboss-%{jboss_version}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/
-
-rm -Rf $RPM_BUILD_ROOT/opt/%{jboss_name}/server/*/deploy/ROOT.war
+cp -R jboss-%{jboss_version}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/
 
 cd $RPM_BUILD_ROOT/opt/%{jboss_name}
 patch -p1 < %{SOURCE1}

@@ -1,0 +1,20 @@
+diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml jboss-6.0.0.M1-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml
+--- jboss-6.0.0.M1/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2009-12-04 10:05:42.000000000 +0100
++++ jboss-6.0.0.M1-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-02-15 12:41:51.017179613 +0100
+@@ -8,6 +8,7 @@
+ 		     singleton_name="shared-udp"
+ 		     mcast_port="${jboss.jgroups.udp.mcast_port:45688}"
+ 		     mcast_addr="${jboss.partition.udpGroup:228.11.11.11}"
++		     ip_mcast="false"
+ 		     tos="8"
+ 		     ucast_recv_buf_size="20000000"
+ 		     ucast_send_buf_size="640000"
+@@ -68,7 +69,7 @@
+                 stack below.
+           -->
+           &shared-udp;
+-          <PING timeout="2000" num_initial_members="3"/>
++          <S3_PING access_key="${jboss.jgroups.s3.access_key:}" secret_access_key="${jboss.jgroups.s3.secret_access_key:}" location="${jboss.jgroups.s3.bucket_location:}" />
+           <MERGE2 max_interval="100000" min_interval="20000"/>
+           <FD_SOCK/>
+           <FD timeout="6000" max_tries="5" shun="true"/>

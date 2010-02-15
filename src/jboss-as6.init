@@ -42,10 +42,13 @@ fi
 #read in service-specific jboss configuration
 [ -f /etc/sysconfig/${NAME} ] && . /etc/sysconfig/${NAME}
 
-export JAVA_HOME=${JAVA_HOME:-"/usr"}
+export JAVA_HOME=${JAVA_HOME:-"/usr/lib/jvm/jre"}
 
-#define where jboss is - this is the directory containing directories log, bin, conf etc
+# define where JBoss is - this is the directory containing directories log, bin, conf etc
 JBOSS_HOME=${JBOSS_HOME:-"/opt/jboss-as6"}
+
+JBOSS_GOSSIP_PORT=${JBOSS_GOSSIP_PORT:-"12001"}
+JBOSS_GOSSIP_REFRESH=${JBOSS_GOSSIP_REFRESH:-"5000"}
 
 #make sure java is on your path
 JAVAPTH=${JAVAPTH:-"$JAVA_HOME/bin"}
