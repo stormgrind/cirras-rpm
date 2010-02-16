@@ -37,7 +37,10 @@ rm -rf $RPM_BUILD_ROOT/opt/%{name}/bin/jboss_init_solaris.sh
 install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
 install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_initrddir}/%{name}
 
-install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
+install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
+
+echo "JBOSS_VERSION=%{version}"              > $RPM_BUILD_ROOT/etc/sysconfig/%{name}
+echo "JBOSS_HOME=/opt/%{name}"              >> $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 
 %clean
 rm -Rf $RPM_BUILD_ROOT

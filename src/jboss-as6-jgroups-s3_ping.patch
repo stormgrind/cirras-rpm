@@ -14,7 +14,7 @@ diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/cluster/jgroups-channelfacto
            -->
            &shared-udp;
 -          <PING timeout="2000" num_initial_members="3"/>
-+          <S3_PING access_key="${jboss.jgroups.s3.access_key:}" secret_access_key="${jboss.jgroups.s3.secret_access_key:}" location="${jboss.jgroups.s3.bucket_location:}" />
++          <S3_PING access_key="${jboss.jgroups.s3_ping.access_key:}" secret_access_key="${jboss.jgroups.s3_ping.secret_access_key:}" location="${jboss.jgroups.s3_ping.bucket_location:}" />
            <MERGE2 max_interval="100000" min_interval="20000"/>
            <FD_SOCK/>
            <FD timeout="6000" max_tries="5" shun="true"/>
