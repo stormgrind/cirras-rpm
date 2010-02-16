@@ -41,9 +41,9 @@ cp -R jboss-%{jboss_version}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/serv
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 
-echo "JBOSS_CLOUD_DEPLOYMENT=true" >> $RPM_BUILD_ROOT/etc/sysconfig/%{jboss_name}
+echo "JBOSS_CLOUD_DEPLOYMENT=true" >> $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 
-cd $RPM_BUILD_ROOT/opt/%{jboss_name}
+cd $RPM_BUILD_ROOT/opt/%{name}
 patch -p1 < %{SOURCE1}
 patch -p1 < %{SOURCE2}
 patch -p1 < %{SOURCE3}
