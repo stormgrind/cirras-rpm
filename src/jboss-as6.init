@@ -68,6 +68,27 @@ if [ "x$JBOSS_CLOUD_DEPLOYMENT" != "x" ]; then
     # we have cloud profiles available
 	if [ "x$EC2_LOCATION" != "x" ]; then
         JBOSSCONF=${JBOSSCONF:-"cluster-ec2"}
+
+        if [ "x$JBOSS_JGROUPS_S3_PING_ACCESS_KEY" != "x" ]; then
+            JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.access_key=$JBOSS_JGROUPS_S3_PING_ACCESS_KEY"
+        else
+            echo "No JBOSS_JGROUPS_S3_PING_ACCESS_KEY provided."
+            exit 1
+        fi
+
+        if [ "x$JBOSS_JGROUPS_S3_PING_ACCESS_KEY" != "x" ]; then
+            JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.secret_access_key=$JBOSS_JGROUPS_S3_PING_SECRET_ACCESS_KEY"
+        else
+            echo "No JBOSS_JGROUPS_S3_PING_SECRET_ACCESS_KEY provided."
+            exit 1
+        fi
+
+        if [ "x$JBOSS_JGROUPS_S3_PING_BUCKET" != "x" ]; then
+            JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.bucket=$JBOSS_JGROUPS_S3_PING_BUCKET"
+        else
+            echo "No JBOSS_JGROUPS_S3_PING_BUCKET provided."
+            exit 1
+        fi
     else
         JBOSSCONF=${JBOSSCONF:-"cluster"}
     fi
@@ -97,7 +118,7 @@ LOGFILE=$JBOSS_HOME/server/$JBOSSCONF/log/console.log
 JBOSS_CONSOLE=${JBOSS_CONSOLE:-"$JBOSS_HOME/server/$JBOSSCONF/log/console.log"}
 
 #define what IP address for running jboss
-JBOSS_IP=${JBOSS_IP:-"0.0.0.0"}
+JBOSS_IP=${JBOSS_IP:-"$IP_ADDRESS"}
 
 #define the jgroups UDP group (multicast address) for clustering
 JBOSS_UDP_GROUP=${JBOSS_UDP_GROUP:-"228.1.2.3"}
@@ -139,10 +160,6 @@ fi
 
 memory=`dmesg | grep ^Memory: | awk '{ print $2 }' | awk -F\/ '{ print $2 }' | sed 's/\k//g'`
 JAVA_OPTS="-Xms$(($memory / 1024 - $memory / 10240))M -Xmx$(($memory / 1024 - $memory / 10240))M -XX:PermSize=$(($memory / 1024 / 4))M -XX:MaxPermSize=$(($memory / 1024 / 4))M -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
-
-[ "x$JBOSS_JGROUPS_S3_PING_ACCESS_KEY" != "x" ]             && JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.access_key=$JBOSS_JGROUPS_S3_PING_ACCESS_KEY"
-[ "x$JBOSS_JGROUPS_S3_PING_SECRET_ACCESS_KEY" != "x" ]      && JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.secret_access_key=$JBOSS_JGROUPS_S3_PING_SECRET_ACCESS_KEY"
-[ "x$JBOSS_JGROUPS_S3_PING_BUCKET_LOCATION" != "x" ]        && JAVA_OPTS="$JAVA_OPTS -Djboss.jgroups.s3_ping.bucket_location=$JBOSS_JGROUPS_S3_PING_BUCKET_LOCATION"
 
 # Set other parameters to the VM
 [ "x$JBOSS_UDP_GROUP" != "x" ] && \

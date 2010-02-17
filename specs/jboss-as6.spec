@@ -52,7 +52,6 @@ rm -Rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add %{name}
-/sbin/chkconfig %{name} on
 
 %files
 %defattr(-,%{name},%{name})
