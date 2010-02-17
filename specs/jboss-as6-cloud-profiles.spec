@@ -4,7 +4,7 @@
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
 Name:           jboss-as6-cloud-profiles
-Version:        1.0.0.Beta1
+Version:        6.0.0.M2
 Release:        1
 License:        LGPL
 BuildArch:      noarch

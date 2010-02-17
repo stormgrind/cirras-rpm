@@ -64,6 +64,9 @@ if [ `curl -o /dev/null -s -m 5 -w '%{http_code}' http://169.254.169.254/latest/
     fi
 fi
 
+memory=`dmesg | grep ^Memory: | awk '{ print $2 }' | awk -F\/ '{ print $2 }' | sed 's/\k//g'`
+JAVA_OPTS="-Xms$(($memory / 1024 - $memory / 10240))M -Xmx$(($memory / 1024 - $memory / 10240))M -XX:PermSize=$(($memory / 1024 / 4))M -XX:MaxPermSize=$(($memory / 1024 / 4))M -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
+
 if [ "x$JBOSS_CLOUD_DEPLOYMENT" != "x" ]; then
     # we have cloud profiles available
 	if [ "x$EC2_LOCATION" != "x" ]; then
@@ -157,9 +160,6 @@ fi
 if [ -f ${RUN_CONF} ]; then
    . ${RUN_CONF}
 fi
-
-memory=`dmesg | grep ^Memory: | awk '{ print $2 }' | awk -F\/ '{ print $2 }' | sed 's/\k//g'`
-JAVA_OPTS="-Xms$(($memory / 1024 - $memory / 10240))M -Xmx$(($memory / 1024 - $memory / 10240))M -XX:PermSize=$(($memory / 1024 / 4))M -XX:MaxPermSize=$(($memory / 1024 / 4))M -Dorg.jboss.resolver.warning=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000"
 
 # Set other parameters to the VM
 [ "x$JBOSS_UDP_GROUP" != "x" ] && \
