@@ -1,5 +1,6 @@
 %define jboss_name jboss-as6
-%define jboss_version 6.0.0.M1
+%define jboss_version 6.0.0.M2
+%define jboss_version_full 6.0.0.20100216-M2
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
 Name:           jboss-as6-cloud-profiles
@@ -22,7 +23,7 @@ The JBoss AS 6 cloud profiles (cluster and group)
 %define __jar_repack %{nil}
 
 %prep
-%setup -T -b 0 -n jboss-%{jboss_version}
+%setup -T -b 0 -n jboss-%{jboss_version_full}
 
 %install
 rm -Rf $RPM_BUILD_ROOT
@@ -35,9 +36,9 @@ install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster
 install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group
 
 # copy profiles
-cp -R jboss-%{jboss_version}/server/default/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/
-cp -R jboss-%{jboss_version}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/
-cp -R jboss-%{jboss_version}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/
+cp -R jboss-%{jboss_version_full}/server/default/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/
+cp -R jboss-%{jboss_version_full}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/
+cp -R jboss-%{jboss_version_full}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 
@@ -56,5 +57,8 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Wed Feb 17 2010 Marek Goldmann 6.0.0.M2-1
+- Upgrade to JBoss AS 6.0.0.M2
+
 * Thu Dec 03 2009 Marek Goldmann 1.0.0.Beta1-1
 - Initial release

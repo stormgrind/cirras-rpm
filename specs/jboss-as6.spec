@@ -1,8 +1,9 @@
 %define jboss_cache_version 3.2.1.GA
+%define jboss_version_full 6.0.0.20100216-M2
 
 Summary:        JBoss Application Server
 Name:           jboss-as6
-Version:        6.0.0.M1
+Version:        6.0.0.M2
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -23,13 +24,13 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 The JBoss Application Server
 
 %prep
-%setup -n jboss-%{version}
+%setup -n jboss-%{jboss_version_full}
 
 %install
 cd %{_topdir}/BUILD
 
 install -d -m 755 $RPM_BUILD_ROOT/opt/%{name}
-cp -R jboss-%{version}/* $RPM_BUILD_ROOT/opt/%{name}
+cp -R jboss-%{jboss_version_full}/* $RPM_BUILD_ROOT/opt/%{name}
 
 # it caused adding bad requires for package
 rm -rf $RPM_BUILD_ROOT/opt/%{name}/bin/jboss_init_solaris.sh
@@ -58,5 +59,8 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Wed Feb 17 2010 Marek Goldmann 6.0.0.M2-1
+- Upgrade to JBoss AS 6.0.0.M2
+
 * Thu Dec 03 2009 Marek Goldmann 6.0.0.M1-1
 - Initial release

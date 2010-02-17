@@ -1,6 +1,6 @@
-diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml jboss-6.0.0.M1-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml
---- jboss-6.0.0.M1/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2009-12-04 10:05:42.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-02-15 12:41:51.017179613 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml
+--- jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-02-15 17:41:00.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-02-17 08:37:05.259664878 +0100
 @@ -8,6 +8,7 @@
  		     singleton_name="shared-udp"
  		     mcast_port="${jboss.jgroups.udp.mcast_port:45688}"

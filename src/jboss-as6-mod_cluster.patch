@@ -1,18 +1,18 @@
-diff -Naur jboss-6.0.0.M1/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.M1-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2009-12-04 10:10:28.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 14:10:44.433054155 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 17:41:02.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-17 08:33:01.120651616 +0100
 @@ -15,7 +15,7 @@
        <depends>jboss:service=TransactionManager</depends>
  
        <!-- Uncomment to enable mod_cluster integration -->
 -      <!--depends>ModClusterListener</depends-->
 +      <depends>ModClusterListener</depends>
- 
+       
        <!-- Inject the TomcatDeployer -->
        <property name="tomcatDeployer"><inject bean="WarDeployer"/></property>
-diff -Naur jboss-6.0.0.M1/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml jboss-6.0.0.M1-work/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2009-12-04 10:10:30.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-15 14:18:55.093055636 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-15 17:41:02.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-17 08:33:51.973652488 +0100
 @@ -11,7 +11,7 @@
    <bean name="ModClusterListener" class="org.jboss.modcluster.catalina.CatalinaEventHandlerAdapter" mode="On Demand">
      <constructor>
@@ -29,21 +29,21 @@ diff -Naur jboss-6.0.0.M1/server/cluster/deploy/mod_cluster.sar/META-INF/mod_clu
 -</deployment>
 \ No newline at end of file
 +</deployment>
-diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.M1-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2009-12-04 10:10:28.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 14:11:03.608056277 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 17:41:02.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-17 08:33:14.463653672 +0100
 @@ -15,7 +15,7 @@
        <depends>jboss:service=TransactionManager</depends>
  
        <!-- Uncomment to enable mod_cluster integration -->
 -      <!--depends>ModClusterListener</depends-->
 +      <depends>ModClusterListener</depends>
- 
+       
        <!-- Inject the TomcatDeployer -->
        <property name="tomcatDeployer"><inject bean="WarDeployer"/></property>
-diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml jboss-6.0.0.M1-work/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2009-12-04 10:10:30.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-15 14:19:06.084056204 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-15 17:41:02.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-02-17 08:33:38.182651502 +0100
 @@ -11,7 +11,7 @@
    <bean name="ModClusterListener" class="org.jboss.modcluster.catalina.CatalinaEventHandlerAdapter" mode="On Demand">
      <constructor>
@@ -60,15 +60,15 @@ diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deploy/mod_cluster.sar/META-INF/mod
 -</deployment>
 \ No newline at end of file
 +</deployment>
-diff -Naur jboss-6.0.0.M1/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.M1-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml
---- jboss-6.0.0.M1/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2009-12-04 10:11:32.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 14:11:23.671054119 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-15 17:41:12.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-02-17 08:32:43.577651734 +0100
 @@ -15,7 +15,7 @@
        <depends>jboss:service=TransactionManager</depends>
  
        <!-- Uncomment to enable mod_cluster integration -->
 -      <!--depends>ModClusterListener</depends-->
 +      <depends>ModClusterListener</depends>
- 
+       
        <!-- Inject the TomcatDeployer -->
        <property name="tomcatDeployer"><inject bean="WarDeployer"/></property>

@@ -1,36 +1,36 @@
-diff -Naur jboss-6.0.0.M1/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.M1-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2009-12-04 10:10:32.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-15 12:31:31.730180621 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-12 19:42:24.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:39:29.229652795 +0100
 @@ -38,7 +38,7 @@
-
+ 
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
      -->
 -    <property name="webServiceHost">${jboss.bind.address}</property>
 +    <property name="webServiceHost">jbossws.undefined.host</property>
      <property name="modifySOAPAddress">true</property>
-
+ 
      <!--
-diff -Naur jboss-6.0.0.M1/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.M1-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.M1/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2009-12-04 10:10:32.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-15 12:31:47.671053427 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-12 19:42:24.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:39:49.778652167 +0100
 @@ -38,7 +38,7 @@
-
+ 
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
      -->
 -    <property name="webServiceHost">${jboss.bind.address}</property>
 +    <property name="webServiceHost">jbossws.undefined.host</property>
      <property name="modifySOAPAddress">true</property>
-
+ 
      <!--
-diff -Naur jboss-6.0.0.M1/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.M1-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.M1/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2009-12-04 10:11:32.000000000 +0100
-+++ jboss-6.0.0.M1-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-15 12:32:05.262056372 +0100
+diff -Naur jboss-6.0.0.20100216-M2/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100216-M2/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-15 17:41:10.000000000 +0100
++++ jboss-6.0.0.20100216-M2-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:40:10.721649353 +0100
 @@ -38,7 +38,7 @@
-
+ 
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
      -->
 -    <property name="webServiceHost">${jboss.bind.address}</property>
 +    <property name="webServiceHost">jbossws.undefined.host</property>
      <property name="modifySOAPAddress">true</property>
-
+ 
      <!--
