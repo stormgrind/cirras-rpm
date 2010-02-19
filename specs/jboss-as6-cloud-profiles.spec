@@ -13,6 +13,7 @@ Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-%{jbo
 Source1:        %{jboss_name}-mod_cluster.patch
 Source2:        %{jboss_name}-jbossws-host.patch
 Source3:        %{jboss_name}-jgroups-s3_ping.patch
+Source4:        %{jboss_name}-jvm-route.patch
 Requires:       %{jboss_name}
 BuildRequires:  patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -48,6 +49,7 @@ cd $RPM_BUILD_ROOT/opt/%{jboss_name}
 patch -p1 < %{SOURCE1}
 patch -p1 < %{SOURCE2}
 patch -p1 < %{SOURCE3}
+patch -p1 < %{SOURCE4}
 
 %clean
 rm -Rf $RPM_BUILD_ROOT
