@@ -9,10 +9,13 @@ Requires:       ruby
 Requires:       initscripts
 Requires:       sed
 Requires:       sudo
+Requires:       initscripts
+Requires(post): /sbin/chkconfig
 Requires(pre):  rubygems
 Requires(pre):  ruby-devel
 Requires(pre):  libxml2-devel
 Requires(pre):  libxslt-devel
+Source:         %{name}.init
 BuildRequires:  ruby
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
@@ -22,6 +25,9 @@ CirrAS management for appliances.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
+install -m 755 %{SOURCE0} $RPM_BUILD_ROOT%{_initrddir}/%{name}
 
 /usr/bin/git clone git://github.com/stormgrind/cirras-management.git $RPM_BUILD_ROOT/usr/share/%{name}
 
@@ -42,6 +48,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/sbin/useradd -m -r -g thin thin 2>/dev/null || :
 
 %post
+/sbin/chkconfig --add %{name}
 echo "sh /usr/share/%{name}/src/network-setup.sh" >> /etc/rc.local
 echo -e "thin ALL = NOPASSWD: ALL\n" >> /etc/sudoers
 /bin/sed -i s/"Defaults    requiretty"/"#Defaults    requiretty"/ /etc/sudoers
