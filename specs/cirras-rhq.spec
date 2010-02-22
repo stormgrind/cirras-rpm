@@ -1,4 +1,4 @@
-%define rhq_version 3.0.0.B02
+%define rhq_version 3.0.0.B03
 %define rhq_name rhq-cli
 
 Summary:        RHQ Helper for CirrAS
