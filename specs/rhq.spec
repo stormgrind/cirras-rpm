@@ -1,6 +1,6 @@
 Summary:        RHQ server
 Name:           rhq
-Version:        3.0.0.B02
+Version:        3.0.0.B03
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -64,6 +64,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Mon Feb 22 2010 Marek Goldmann 3.0.0.B03
+- Upgrade to upstream 3.0.0.B03 release
+
 * Mon Feb 01 2010 Marek Goldmann 3.0.0.B01
 - Upgrade to upstream 3.0.0.B01 release
 
