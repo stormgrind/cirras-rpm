@@ -1,6 +1,7 @@
 #!/bin/sh
 
 [ -f /etc/sysconfig/boxgrinder ]    && . /etc/sysconfig/boxgrinder
+[ -f /etc/sysconfig/rhq ]           && . /etc/sysconfig/rhq
 [ -f /etc/sysconfig/rhq-cli ]       && . /etc/sysconfig/rhq-cli
 
 RHQ_SERVER_IP=127.0.0.1
@@ -28,3 +29,6 @@ done
 cd $RHQ_CLI_HOME
 
 unzip $RHQ_CLI_NAME-$RHQ_CLI_VERSION.zip
+
+# dirty fix
+cp $RHQ_HOME/jbossas/server/default/deploy/rhq.ear/lib/rhq-core-client-api-$RHQ_VERSION.jar $RHQ_CLI_HOME/$RHQ_CLI_NAME-$RHQ_VERSION/lib 
