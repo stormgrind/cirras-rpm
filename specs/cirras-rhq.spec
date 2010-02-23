@@ -3,7 +3,7 @@
 
 Summary:        RHQ Helper for CirrAS
 Name:           cirras-rhq
-Version:        1.0.0.Beta1
+Version:        1.0.0.Beta2
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -47,5 +47,8 @@ echo '* * * * * /usr/share/%{name}/import-servers.sh >> /var/log/%{name}/import.
 /
 
 %changelog
+* Thu Feb 23 2010 Marek Goldmann 1.0.0.Beta2
+- Version upgrade
+
 * Thu Jan 28 2010 Marek Goldmann 1.0.0.Beta1
 - Initial packaging

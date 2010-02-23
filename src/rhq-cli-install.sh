@@ -27,8 +27,7 @@ while [ "$downloaded" = "0" ]; do
 done
 
 cd $RHQ_CLI_HOME
-
 unzip $RHQ_CLI_NAME-$RHQ_CLI_VERSION.zip
 
 # dirty fix
-cp $RHQ_HOME/jbossas/server/default/deploy/rhq.ear/lib/rhq-core-client-api-$RHQ_VERSION.jar $RHQ_CLI_HOME/$RHQ_CLI_NAME-$RHQ_VERSION/lib 
+cp $RHQ_HOME/jbossas/server/default/deploy/rhq.ear/lib/rhq-core-client-api-$RHQ_VERSION.jar $RHQ_CLI_HOME/$RHQ_CLI_NAME-$RHQ_VERSION/lib/
