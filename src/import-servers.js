@@ -73,10 +73,13 @@ function findResources(name, imported) {
 }
 
 function addDependencyIds(resource, array) {
-    var parent = ResourceManager.getResource(resource.id).getParentResource();
+    var parentResource = ResourceManager.getResource(resource.id).getParentResource();
 
-    if (parent != null) {
-        addDependencyIds(parent, array);
+    if (parentResource != null) {
+        parentResource = ResourceManager.getResource(parentResource.id);
+
+        if (parentResource.getInventoryStatus().equals(InventoryStatus.NEW))
+            addDependencyIds(parentResource, array);
     }
 
     array.push(resource.id);
