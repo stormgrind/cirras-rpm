@@ -1,14 +1,13 @@
-%define jboss_cache_version 3.2.1.GA
-%define jboss_version_full 6.0.0.20100216-M2
+%define jboss_version_full 6.0.0.20100429-M3
 
 Summary:        JBoss Application Server
 Name:           jboss-as6
-Version:        6.0.0.M2
+Version:        6.0.0.M3
 Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
-Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-%{version}.zip
+Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
 Source1:        %{name}.init
 Requires:       shadow-utils
 Requires:       coreutils
@@ -60,6 +59,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Fri May 05 2010 Marek Goldmann 6.0.0.M3-1
+- Upgrade to upstream 6.0.0.M3 release
+
 * Wed Feb 17 2010 Marek Goldmann 6.0.0.M2-1
 - Upgrade to JBoss AS 6.0.0.M2
 

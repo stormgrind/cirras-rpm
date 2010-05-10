@@ -6,7 +6,7 @@
 
 Summary:    JBoss mod_cluster for Apache httpd
 Name:       mod_cluster
-Version:    1.1.0.Beta1
+Version:    1.1.0.CR1
 Release:    1
 License:    LGPL
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -82,6 +82,9 @@ popd > /dev/null
 /
 
 %changelog
+* Fri May 05 2010 Marek Goldmann 1.0.0.CR1
+- Upgrade to upstream 1.0.0.CR1
+
 * Thu Dec 03 2009 Marek Goldmann 1.1.0.Beta1
 - Update to 1.1.0.Beta1
 

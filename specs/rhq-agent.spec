@@ -2,11 +2,11 @@
 
 Summary:        RHQ Agent
 Name:           rhq-agent
-Version:        3.0.0.B03
+Version:        3.0.0.B05
 Release:        1
 License:        LGPL
 BuildArch:      noarch
-Source0:        http://downloads.sourceforge.net/project/rhq/rhq/rhq-%{version}/rhq-enterprise-agent-%{version}.zip
+Source0:        http://downloads.sourceforge.net/project/rhq/rhq/rhq-%{version}/rhq-enterprise-server-%{version}.zip
 Source1:        rhq-agent.init
 Source2:        rhq-agent-install.sh
 Group:          Applications/System
@@ -27,12 +27,16 @@ The RHQ project is an abstraction and plug-in based systems management suite tha
 
 %prep
 rm -rf $RPM_BUILD_DIR
-unzip -q %{SOURCE0} -d $RPM_BUILD_DIR
+unzip -q %{SOURCE0} rhq-server-%{version}/jbossas/server/default/deploy/rhq.ear.rej/rhq-downloads/rhq-agent/rhq-enterprise-agent-%{version}.jar -d $RPM_BUILD_DIR
+cd $RPM_BUILD_DIR/rhq-server-%{version}/jbossas/server/default/deploy/rhq.ear.rej/rhq-downloads/rhq-agent/ && jar xf rhq-enterprise-agent-%{version}.jar
+unzip -q $RPM_BUILD_DIR/rhq-server-%{version}/jbossas/server/default/deploy/rhq.ear.rej/rhq-downloads/rhq-agent/rhq-enterprise-agent-%{version}.zip
+
+%build
 
 %install
 install -d -m 755 $RPM_BUILD_ROOT/opt/%{name}-%{version}
-cd rhq-agent
-cp -R . $RPM_BUILD_ROOT/opt/%{name}-%{version}
+
+cp -R $RPM_BUILD_DIR/rhq-server-%{version}/jbossas/server/default/deploy/rhq.ear.rej/rhq-downloads/rhq-agent/rhq-agent/* $RPM_BUILD_ROOT/opt/%{name}-%{version}
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 
@@ -61,6 +65,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Fri May 05 2010 Marek Goldmann 3.0.0.B05
+- Upgrade to upstream 3.0.0.B05 release
+
 * Mon Feb 22 2010 Marek Goldmann 3.0.0.B03
 - Upgrade to upstream 3.0.0.B03 release
 

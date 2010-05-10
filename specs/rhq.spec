@@ -1,11 +1,11 @@
 Summary:        RHQ server
 Name:           rhq
-Version:        3.0.0.B03
+Version:        3.0.0.B05
 Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
-Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}-%{version}/rhq-server-%{version}.zip
+Source0:        http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}-%{version}/rhq-enterprise-server-%{version}.zip
 Source3:        rhq.init
 Source4:        preconfigure-rhq.sh
 Source5:        rhq-server.properties
@@ -64,6 +64,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Fri May 05 2010 Marek Goldmann 3.0.0.B05
+- Upgrade to upstream 3.0.0.B05 release
+
 * Mon Feb 22 2010 Marek Goldmann 3.0.0.B03
 - Upgrade to upstream 3.0.0.B03 release
 
