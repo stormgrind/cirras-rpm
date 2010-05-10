@@ -1,6 +1,6 @@
-diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100216-M2-work/server/cluster/deploy/jbossweb.sar/server.xml
---- jboss-6.0.0.20100216-M2/server/cluster/deploy/jbossweb.sar/server.xml	2010-02-15 17:41:02.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/cluster/deploy/jbossweb.sar/server.xml	2010-02-19 11:56:59.559091472 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100429-M3-work/server/cluster/deploy/jbossweb.sar/server.xml
+--- jboss-6.0.0.20100429-M3/server/cluster/deploy/jbossweb.sar/server.xml	2010-05-02 17:39:04.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster/deploy/jbossweb.sar/server.xml	2010-05-10 12:53:23.197801933 +0200
 @@ -32,7 +32,7 @@
             keystorePass="rmi+ssl" sslProtocol = "TLS" />
        -->
@@ -10,9 +10,9 @@ diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deploy/jbossweb.sar/server.xml
  
           <!-- The JAAS based authentication and authorization realm implementation
           that is compatible with the jboss 3.2.x realm implementation.
-diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/jbossweb.sar/server.xml
---- jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/jbossweb.sar/server.xml	2010-02-15 17:41:02.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deploy/jbossweb.sar/server.xml	2010-02-19 11:58:27.320094067 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/jbossweb.sar/server.xml
+--- jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/jbossweb.sar/server.xml	2010-05-02 17:39:04.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/jbossweb.sar/server.xml	2010-05-10 12:53:35.781800701 +0200
 @@ -32,7 +32,7 @@
             keystorePass="rmi+ssl" sslProtocol = "TLS" />
        -->
@@ -22,9 +22,9 @@ diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deploy/jbossweb.sar/server
  
           <!-- The JAAS based authentication and authorization realm implementation
           that is compatible with the jboss 3.2.x realm implementation.
-diff -Naur jboss-6.0.0.20100216-M2/server/default/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100216-M2-work/server/default/deploy/jbossweb.sar/server.xml
---- jboss-6.0.0.20100216-M2/server/group/deploy/jbossweb.sar/server.xml	2010-02-15 17:41:12.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/group/deploy/jbossweb.sar/server.xml	2010-02-19 11:58:52.696448786 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/group/deploy/jbossweb.sar/server.xml jboss-6.0.0.20100429-M3-work/server/group/deploy/jbossweb.sar/server.xml
+--- jboss-6.0.0.20100429-M3/server/group/deploy/jbossweb.sar/server.xml	2010-05-02 17:39:16.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/group/deploy/jbossweb.sar/server.xml	2010-05-10 12:53:50.420801556 +0200
 @@ -32,7 +32,7 @@
             keystorePass="rmi+ssl" sslProtocol = "TLS" />
        -->

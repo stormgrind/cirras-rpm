@@ -1,6 +1,6 @@
-diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.20100216-M2/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-12 19:42:24.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:39:29.229652795 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-02 12:24:32.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-10 12:24:07.653799824 +0200
 @@ -38,7 +38,7 @@
  
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
@@ -10,9 +10,9 @@ diff -Naur jboss-6.0.0.20100216-M2/server/cluster/deployers/jbossws.deployer/MET
      <property name="modifySOAPAddress">true</property>
  
      <!--
-diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.20100216-M2/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-12 19:42:24.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:39:49.778652167 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-02 12:24:32.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-10 12:24:23.644801681 +0200
 @@ -38,7 +38,7 @@
  
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
@@ -22,9 +22,9 @@ diff -Naur jboss-6.0.0.20100216-M2/server/cluster-ec2/deployers/jbossws.deployer
      <property name="modifySOAPAddress">true</property>
  
      <!--
-diff -Naur jboss-6.0.0.20100216-M2/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100216-M2-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
---- jboss-6.0.0.20100216-M2/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-15 17:41:10.000000000 +0100
-+++ jboss-6.0.0.20100216-M2-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-02-17 08:40:10.721649353 +0100
+diff -Naur jboss-6.0.0.20100429-M3/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-02 17:39:16.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/group/deployers/jbossws.deployer/META-INF/stack-agnostic-jboss-beans.xml	2010-05-10 12:24:42.629801606 +0200
 @@ -38,7 +38,7 @@
  
        If 'webServiceHost' is set to 'jbossws.undefined.host', JBossWS uses requesters host when rewriting the <soap:address>
