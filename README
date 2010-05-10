@@ -1,0 +1,9 @@
+http://www.jboss.org/stormgrind/projects/cirras.html
+
+Before you begin, please add:
+
+%_binaries_in_noarch_packages_terminate_build 0
+
+to ~/.rpmmacros
+
+
