@@ -52,7 +52,7 @@ JAVAPTH=${JAVAPTH:-"$JAVA_HOME/bin"}
 
 #define the classpath for the shutdown class
 #JBOSSCP=${JBOSSCP:-"$JGROUPS_HOME/bin/shutdown.jar:$JBOSS_HOME/client/jbossall-client.jar"}
-JGROUPSCP=${JGROUPSCP:-"$JGROUPS_HOME/jgroups-all.jar:$JGROUPS_HOME/commons-logging.jar:$JGROUPS_HOME/log4j.jar"}
+JGROUPSCP=${JGROUPSCP:-"$JGROUPS_HOME/jgroups-$JGROUPS_VERSION.jar:$JGROUPS_HOME/commons-logging.jar:$JGROUPS_HOME/log4j.jar"}
 
 #define the user under which JGroups will run, or use RUNASIS to run as the current user
 JGROUPSUS=${JGROUPSUS:-"jgroups"}

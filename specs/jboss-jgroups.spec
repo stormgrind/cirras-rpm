@@ -26,7 +26,8 @@ cp -R . $RPM_BUILD_ROOT/opt/jboss-jgroups
 install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
 install -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_initrddir}/jgroups-gossip
 
-echo 'JAVA_HOME=/usr/lib/jvm/jre' > $RPM_BUILD_ROOT/etc/jboss-jgroups.conf
+echo 'JAVA_HOME=/usr/lib/jvm/jre'  > $RPM_BUILD_ROOT/etc/jboss-jgroups.conf
+echo 'JGROUPS_VERSION=%{version}' >> $RPM_BUILD_ROOT/etc/jboss-jgroups.conf
 
 %post
 /bin/echo "echo JGROUPS_IP=\`ifconfig eth0 | awk '/inet addr/ {split (\$2,A,\":\"); print A[2]}'\` >> /etc/jboss-jgroups.conf" >> /etc/rc.local
