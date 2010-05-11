@@ -1,9 +1,8 @@
-%define rhq_version 3.0.0.B03
 %define rhq_name rhq-cli
 
 Summary:        RHQ Helper for CirrAS
 Name:           cirras-rhq
-Version:        1.0.0.Beta2
+Version:        3.0.0.B05
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -23,8 +22,8 @@ Helps with importing and configuring RHQ in CirrAS environment.
 %install
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 
-echo "RHQ_CLI_VERSION=%{rhq_version}"    > $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
-echo "RHQ_CLI_HOME=/opt/%{rhq_name}-%{rhq_version}"    >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
+echo "RHQ_CLI_VERSION=%{version}"    > $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
+echo "RHQ_CLI_HOME=/opt/%{rhq_name}-%{version}"    >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_CLI_USERNAME=rhqadmin"        >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_CLI_PASSWORD=rhqadmin"        >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
 echo "RHQ_SERVER_PORT=7080"             >> $RPM_BUILD_ROOT/etc/sysconfig/%{rhq_name}
@@ -47,6 +46,9 @@ echo '* * * * * /usr/share/%{name}/import-servers.sh >> /var/log/%{name}/import.
 /
 
 %changelog
+* Fri May 05 2010 Marek Goldmann 3.0.0.B05
+- Upgrade to upstream 3.0.0.B05 release
+
 * Thu Feb 23 2010 Marek Goldmann 1.0.0.Beta2
 - Version upgrade
 
