@@ -14,6 +14,7 @@ Requires:       initscripts
 Requires:       rubygems
 BuildRequires:  ruby-devel gcc-c++ rubygems git
 Requires(post): /sbin/chkconfig
+Group:          Development/Tools
 Source0:        %{name}.init
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
