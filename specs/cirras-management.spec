@@ -3,7 +3,7 @@
 Summary:        CirrAS management for appliances
 Name:           cirras-management
 Version:        0.3.0
-Release:        1
+Release:        1%{?dist}
 License:        LGPL
 Requires:       shadow-utils
 Requires:       ruby
@@ -30,7 +30,7 @@ install -m 755 %{SOURCE0} $RPM_BUILD_ROOT%{_initrddir}/%{name}
 
 install -d -m 755 $RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version}
 
-gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc nokogiri amazon-ec2 sinatra rest-client thin
+gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc nokogiri amazon-ec2 sinatra rest-client thin cgi_multipart_eof_fix
 
 install -d -m 755 $RPM_BUILD_ROOT/usr/share/%{name}
 /usr/bin/git clone git://github.com/stormgrind/cirras-management.git $RPM_BUILD_ROOT/usr/share/%{name}
