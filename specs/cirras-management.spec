@@ -1,24 +1,21 @@
+%define ruby_version 1.8
+
 Summary:        CirrAS management for appliances
 Name:           cirras-management
-Version:        1.0.0.Beta2
+Version:        0.3.0
 Release:        1
 License:        LGPL
-Requires:       git
 Requires:       shadow-utils
 Requires:       ruby
 Requires:       initscripts
 Requires:       sed
 Requires:       sudo
 Requires:       initscripts
+Requires:       rubygems
+BuildRequires:  ruby-devel gcc-c++ rubygems git
 Requires(post): /sbin/chkconfig
-Requires(pre):  rubygems
-Requires(pre):  ruby-devel
-Requires(pre):  libxml2-devel
-Requires(pre):  libxslt-devel
-Source:         %{name}.init
-BuildRequires:  ruby
+Source0:        %{name}.init
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-BuildArch:      noarch
 
 %description
 CirrAS management for appliances.
@@ -29,12 +26,9 @@ rm -rf $RPM_BUILD_ROOT
 install -d -m 755 $RPM_BUILD_ROOT%{_initrddir}
 install -m 755 %{SOURCE0} $RPM_BUILD_ROOT%{_initrddir}/%{name}
 
-/usr/bin/git clone git://github.com/stormgrind/cirras-management.git $RPM_BUILD_ROOT/usr/share/%{name}
+install -d -m 755 $RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version}
 
-pushd $RPM_BUILD_ROOT/usr/share/%{name}
-/usr/bin/git submodule init
-/usr/bin/git submodule update
-popd
+gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc %{name} 
 
 install -d -m 755 $RPM_BUILD_ROOT/var/log/%{name}
 install -d -m 755 $RPM_BUILD_ROOT/var/lock
@@ -52,8 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 echo "sh /usr/share/%{name}/src/network-setup.sh" >> /etc/rc.local
 echo -e "thin ALL = NOPASSWD: ALL\n" >> /etc/sudoers
 /bin/sed -i s/"Defaults    requiretty"/"#Defaults    requiretty"/ /etc/sudoers
-
-/usr/bin/gem install -ql /usr/share/%{name}/gems/*.gem &> /usr/share/%{name}/gems/install.log
 
 %files
 %defattr(-,root,root)
