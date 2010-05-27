@@ -12,8 +12,9 @@ Requires:       sed
 Requires:       sudo
 Requires:       initscripts
 Requires:       rubygems
-BuildRequires:  ruby-devel gcc-c++ rubygems git
+BuildRequires:  ruby-devel gcc-c++ rubygems git libxml2-devel libxslt-devel
 Requires(post): /sbin/chkconfig
+Provides:       /usr/local/bin/ruby
 Group:          Development/Tools
 Source0:        %{name}.init
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -29,7 +30,10 @@ install -m 755 %{SOURCE0} $RPM_BUILD_ROOT%{_initrddir}/%{name}
 
 install -d -m 755 $RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version}
 
-gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc %{name} 
+gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc nokogiri amazon-ec2 sinatra rest-client thin
+
+install -d -m 755 $RPM_BUILD_ROOT/usr/share/%{name}
+/usr/bin/git clone git://github.com/stormgrind/cirras-management.git $RPM_BUILD_ROOT/usr/share/%{name}
 
 install -d -m 755 $RPM_BUILD_ROOT/var/log/%{name}
 install -d -m 755 $RPM_BUILD_ROOT/var/lock
