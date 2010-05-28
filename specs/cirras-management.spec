@@ -32,7 +32,6 @@ install -d -m 755 $RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version}
 
 gem install --install-dir=$RPM_BUILD_ROOT/usr/lib/ruby/gems/%{ruby_version} --force --rdoc nokogiri amazon-ec2 sinatra rest-client thin cgi_multipart_eof_fix
 
-install -d -m 755 $RPM_BUILD_ROOT/usr/share/%{name}
 /usr/bin/git clone git://github.com/stormgrind/cirras-management.git $RPM_BUILD_ROOT/usr/share/%{name}
 
 install -d -m 755 $RPM_BUILD_ROOT/var/log/%{name}
