@@ -37,11 +37,13 @@ if [ $USER_CREATED -eq "0" ]
 then
     echo "Database user $DATABASE_USER not created, creating..."
     /bin/su postgres -c "/usr/bin/createuser -SDR $DATABASE_USER"
-    echo "ALTER USER $DATABASE_USER WITH PASSWORD '$DATABASE_PASSWORD';" | /bin/su postgres -c /usr/bin/psql
     echo "User created."
 else
     echo "Database user $DATABASE_USER already exists, skipping."
 fi
+
+echo "Altering password..."
+echo "ALTER USER $DATABASE_USER WITH PASSWORD '$DATABASE_PASSWORD';" | /bin/su postgres -c /usr/bin/psql
 
 if [ $DATABASE_CREATED -eq "0" ]
 then

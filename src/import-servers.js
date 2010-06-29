@@ -1,13 +1,13 @@
 var imported_httpd_servers = findResources("Apache HTTP Server");
 
-println("Imported Apache HTTPD servers:");
+print("Imported Apache HTTPD servers:");
 printServers(imported_httpd_servers);
 
-println("Discovering new Apache HTTPD servers...");
+print("Discovering new Apache HTTPD servers...");
 var discovered_httpd_servers = findResources("Apache HTTP Server", false);
 
 if (discovered_httpd_servers != null && discovered_httpd_servers.size() > 0) {
-    println("Disovered " + discovered_httpd_servers.size() + " Apache HTTPD servers:");
+    print("Disovered " + discovered_httpd_servers.size() + " Apache HTTPD servers:");
 
     var httpdResourceIds = [];
 
@@ -16,8 +16,8 @@ if (discovered_httpd_servers != null && discovered_httpd_servers.size() > 0) {
 
         addDependencyIds(discovered_httpd_server, httpdResourceIds);
 
-        println(" - " + discovered_httpd_server.name);
-        println("   Reconfiguring agent...");
+        print(" - " + discovered_httpd_server.name);
+        print("   Reconfiguring agent...");
 
         var address = discovered_httpd_server.name.match(new RegExp("^[\\w\\-]+", "g"))[0];
         var httpd = ProxyFactory.getResource(discovered_httpd_server.id);
@@ -26,23 +26,23 @@ if (discovered_httpd_servers != null && discovered_httpd_servers.size() > 0) {
         httpd_configuration.getSimple("url").setStringValue("http://" + address);
         httpd.updatePluginConfiguration(httpd_configuration);
 
-        println("   Agent reconfigured.");
+        print("   Agent reconfigured.");
     }
 
-    println("Importing " + discovered_httpd_servers.size() + " Apache HTTPD servers...");
+    print("Importing " + discovered_httpd_servers.size() + " Apache HTTPD servers...");
     DiscoveryBoss.importResources(httpdResourceIds);
-    println("Imported.");
+    print("Imported.");
 
 } else {
-    println("No servers found.")
+    print("No servers found.")
 }
 
 var imported_jboss_servers = findResources("JBossAS Server");
 
-println("Imported JBoss AS 5/6 servers:");
+print("Imported JBoss AS 5/6 servers:");
 printServers(imported_jboss_servers);
 
-println("Discovering new JBoss AS 5/6 servers...");
+print("Discovering new JBoss AS 5/6 servers...");
 var discovered_jboss_servers = findResources("JBossAS Server", false);
 printServers(discovered_jboss_servers);
 
@@ -53,9 +53,9 @@ if (discovered_jboss_servers != null && discovered_jboss_servers.size() > 0) {
         addDependencyIds(discovered_jboss_servers.get(i), jbossResourceIds);
     }
 
-    println("Importing " + discovered_jboss_servers.size() + " JBoss AS 5/6 servers...");
+    print("Importing " + discovered_jboss_servers.size() + " JBoss AS 5/6 servers...");
     DiscoveryBoss.importResources(jbossResourceIds);
-    println("Imported.");
+    print("Imported.");
 }
 
 function findResources(name, imported) {
@@ -89,9 +89,9 @@ function printServers(resources) {
     if (resources != null && resources.size() > 0) {
         for (var i = 0; i < resources.size(); i++) {
             var resource = resources.get(i);
-            println(" - " + resource.name);
+            print(" - " + resource.name);
         }
     } else {
-        println("No servers found.")
+        print("No servers found.")
     }
 }

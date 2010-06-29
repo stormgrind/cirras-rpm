@@ -1,27 +1,28 @@
-%define mod_cluster_arch 32
+%define mod_cluster_arch x86
+%define mod_cluster_bit 32
 
 %ifarch x86_64
-	%define mod_cluster_arch 64
+	%define mod_cluster_arch x64
+	%define mod_cluster_bit 64
 %endif
 
 Summary:    JBoss mod_cluster for Apache httpd
 Name:       mod_cluster
-Version:    1.1.0.CR1
+Version:    1.1.0.CR3
 Release:    1
 License:    LGPL
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Group:      Applications/System
 Requires:   httpd-devel >= 2.2.8
-Source0:    http://www.jboss.org/file-access/default/members/mod_cluster/freezone/dist/%{version}/mod_cluster-%{version}-linux2-x86-so.tar.gz
-Source1:    http://www.jboss.org/file-access/default/members/mod_cluster/freezone/dist/%{version}/mod_cluster-%{version}-linux2-x64-so.tar.gz
+Source:     http://downloads.jboss.org/mod_cluster/%{version}/mod_cluster-%{version}-linux2-%{mod_cluster_arch}-so.tar.gz
 Source2:    mod_cluster.conf
 
 %description
 JBoss mod_cluster for Apache httpd
 
 %prep
-%setup -T -b 0 -c -n %{name}-32
-%setup -T -b 1 -c -n %{name}-64
+rm -rf %{name}-%{mod_cluster_bit}
+%setup -T -b 0 -c -n %{name}-%{mod_cluster_bit}
 
 %install
 
@@ -37,7 +38,7 @@ modules=( mod_advertise mod_manager mod_proxy_cluster mod_slotmem )
 
 # mod_proxy_ajp mod_proxy_http
 
-pushd %{name}-%{mod_cluster_arch}
+pushd %{name}-%{mod_cluster_bit}
 
 install -d -m 755 $RPM_BUILD_ROOT%{httpd_modules_dir}
 
@@ -82,6 +83,9 @@ popd > /dev/null
 /
 
 %changelog
+* Tue Jun 29 2010 Marek Goldmann 1.0.0.CR3
+- Upgrade to upstream 1.0.0.CR3 release
+
 * Fri May 05 2010 Marek Goldmann 1.0.0.CR1
 - Upgrade to upstream 1.0.0.CR1
 
