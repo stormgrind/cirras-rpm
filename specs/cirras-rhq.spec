@@ -2,7 +2,7 @@
 
 Summary:        RHQ Helper for CirrAS
 Name:           cirras-rhq
-Version:        3.0.0.B05
+Version:        3.0.0.B06
 Release:        1
 License:        LGPL
 BuildArch:      noarch
