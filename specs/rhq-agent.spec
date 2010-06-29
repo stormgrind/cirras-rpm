@@ -2,7 +2,7 @@
 
 Summary:        RHQ Agent
 Name:           rhq-agent
-Version:        3.0.0.B05
+Version:        3.0.0.B06
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -65,6 +65,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Tue Jun 29 2010 Marek Goldmann 3.0.0.B06
+- Upgrade to upstream 3.0.0.B06 release
+
 * Fri May 05 2010 Marek Goldmann 3.0.0.B05
 - Upgrade to upstream 3.0.0.B05 release
 

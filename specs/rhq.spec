@@ -1,6 +1,6 @@
 Summary:        RHQ server
 Name:           rhq
-Version:        3.0.0.B05
+Version:        3.0.0.B06
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -13,7 +13,7 @@ Requires:       shadow-utils
 Requires:       java-1.6.0-openjdk
 Requires:       unzip
 Requires:       urw-fonts
-Requires(pre):  postgresql
+Requires(pre):  postgresql-server
 Requires(post): /sbin/chkconfig
 Requires(post): /bin/sed
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -60,10 +60,13 @@ rm -Rf $RPM_BUILD_ROOT
 /sbin/chkconfig %{name} on
 
 %files
-%defattr(-,%{name},%{name})
+%defattr(-,rhq,rhq)
 /
 
 %changelog
+* Tue Jun 29 2010 Marek Goldmann 3.0.0.B06
+- Upgrade to upstream 3.0.0.B06 release
+
 * Fri May 05 2010 Marek Goldmann 3.0.0.B05
 - Upgrade to upstream 3.0.0.B05 release
 
