@@ -1,6 +1,7 @@
 %define jboss_name jboss-as6
 %define jboss_version 6.0.0.M3
 %define jboss_version_full 6.0.0.20100429-M3
+%define jgroups_version 2.10.0.CR1
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
 Name:           jboss-as6-cloud-profiles
@@ -14,6 +15,7 @@ Source1:        %{jboss_name}-mod_cluster.patch
 Source2:        %{jboss_name}-jbossws-host.patch
 Source3:        %{jboss_name}-jgroups-s3_ping.patch
 Source4:        %{jboss_name}-jvm-route.patch
+Source5:        http://heanet.dl.sourceforge.net/sourceforge/javagroups/JGroups-%{jgroups_version}.bin.zip
 Requires:       %{jboss_name}
 BuildRequires:  patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -25,6 +27,7 @@ The JBoss AS 6 cloud profiles (cluster and group)
 
 %prep
 %setup -T -b 0 -n jboss-%{jboss_version_full}
+%setup -T -b 5 -n JGroups-%{jgroups_version}.bin
 
 %install
 rm -Rf $RPM_BUILD_ROOT
@@ -40,6 +43,10 @@ install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group
 cp -R jboss-%{jboss_version_full}/server/default/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/
 cp -R jboss-%{jboss_version_full}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/
 cp -R jboss-%{jboss_version_full}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/
+
+# JGroups update
+cp JGroups-%{jgroups_version}.bin/jgroups-%{jgroups_version}.jar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/lib/jgroups.jar
+cp JGroups-%{jgroups_version}.bin/jgroups-%{jgroups_version}.jar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/lib/jgroups.jar
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 

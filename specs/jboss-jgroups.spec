@@ -1,6 +1,6 @@
 Summary:    JBoss JGroups
 Name:       jboss-jgroups
-Version:    2.6.15.GA
+Version:    2.10.0.CR1
 Release:    1
 License:    LGPL
 BuildArch:  noarch
@@ -45,6 +45,9 @@ JGROUPS_SHELL=/bin/bash
 /
 
 %changelog
+* Wed Jun 30 2010 Marek Goldmann 2.10.0.CR1
+- Upgrade to 2.10.0.CR1
+
 * Mon May 10 2010 Marek Goldmann 2.6.15.GA-1
 - Upgrade to 2.6.15.GA
 
