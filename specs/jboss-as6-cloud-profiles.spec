@@ -2,6 +2,7 @@
 %define jboss_version 6.0.0.M3
 %define jboss_version_full 6.0.0.20100429-M3
 %define jgroups_version 2.10.0.CR1
+%define mod_cluster_version 1.1.0.CR3
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
 Name:           jboss-as6-cloud-profiles
@@ -11,11 +12,12 @@ License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
 Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
-Source1:        %{jboss_name}-mod_cluster.patch
+Source1:        jboss-as6-%{version}-mod_cluster-%{mod_cluster_version}-integration.patch
 Source2:        %{jboss_name}-jbossws-host.patch
 Source3:        %{jboss_name}-jgroups-s3_ping.patch
 Source4:        %{jboss_name}-jvm-route.patch
 Source5:        http://heanet.dl.sourceforge.net/sourceforge/javagroups/JGroups-%{jgroups_version}.bin.zip
+Source6:        http://downloads.jboss.org/mod_cluster/%{mod_cluster_version}/mod_cluster-%{mod_cluster_version}-bin.tar.gz
 Requires:       %{jboss_name}
 BuildRequires:  patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -28,6 +30,7 @@ The JBoss AS 6 cloud profiles (cluster and group)
 %prep
 %setup -T -b 0 -n jboss-%{jboss_version_full}
 %setup -T -b 5 -n JGroups-%{jgroups_version}.bin
+%setup -T -b 6 -c -n mod_cluster-%{mod_cluster_version}
 
 %install
 rm -Rf $RPM_BUILD_ROOT
@@ -47,6 +50,16 @@ cp -R jboss-%{jboss_version_full}/server/all/* $RPM_BUILD_ROOT/opt/%{jboss_name}
 # JGroups update
 cp JGroups-%{jgroups_version}.bin/jgroups-%{jgroups_version}.jar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/lib/jgroups.jar
 cp JGroups-%{jgroups_version}.bin/jgroups-%{jgroups_version}.jar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/lib/jgroups.jar
+
+# mod_cluster update
+
+rm -rf $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/deploy/mod_cluster.sar
+rm -rf $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/deploy/mod_cluster.sar
+rm -rf $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/deploy/mod_cluster.sar
+
+cp -r mod_cluster-%{mod_cluster_version}/mod_cluster.sar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/deploy/
+cp -r mod_cluster-%{mod_cluster_version}/mod_cluster.sar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/deploy/
+cp -r mod_cluster-%{mod_cluster_version}/mod_cluster.sar $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/deploy/
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 

@@ -1,0 +1,48 @@
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-05-02 17:39:04.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-07-01 09:42:57.329110638 +0200
+@@ -22,7 +22,7 @@
+       <depends>jboss:service=TransactionManager</depends>
+ 
+       <!-- Uncomment to enable mod_cluster integration -->
+-      <!--depends>ModClusterListener</depends-->
++      <depends>ModClusterListener</depends>
+       
+       <!-- 
+          Do not configure other JMX attributes via this file.
+diff -Naur jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-05-02 17:39:04.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-07-01 09:43:09.377109474 +0200
+@@ -22,7 +22,7 @@
+       <depends>jboss:service=TransactionManager</depends>
+ 
+       <!-- Uncomment to enable mod_cluster integration -->
+-      <!--depends>ModClusterListener</depends-->
++      <depends>ModClusterListener</depends>
+       
+       <!-- 
+          Do not configure other JMX attributes via this file.
+diff -Naur jboss-6.0.0.20100429-M3/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-05-02 17:39:16.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/group/deploy/jbossweb.sar/META-INF/jboss-beans.xml	2010-07-01 09:43:25.759101408 +0200
+@@ -22,7 +22,7 @@
+       <depends>jboss:service=TransactionManager</depends>
+ 
+       <!-- Uncomment to enable mod_cluster integration -->
+-      <!--depends>ModClusterListener</depends-->
++      <depends>ModClusterListener</depends>
+       
+       <!-- 
+          Do not configure other JMX attributes via this file.
+diff -Naur jboss-6.0.0.20100429-M3/server/group/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml jboss-6.0.0.20100429-M3-work/server/group/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml
+--- jboss-6.0.0.20100429-M3/server/group/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-06-11 07:34:03.000000000 +0200
++++ jboss-6.0.0.20100429-M3-work/server/group/deploy/mod_cluster.sar/META-INF/mod_cluster-jboss-beans.xml	2010-07-01 09:43:55.200101793 +0200
+@@ -8,7 +8,7 @@
+   <!-- Entry point: catalina lifecycle listener -->
+   <bean name="ModClusterListener" class="org.jboss.modcluster.catalina.CatalinaEventHandlerAdapter">
+     <constructor>
+-      <parameter class="org.jboss.modcluster.ContainerEventHandler"><inject bean="HAModClusterService"/></parameter>
++      <parameter class="org.jboss.modcluster.ContainerEventHandler"><inject bean="ModClusterService"/></parameter>
+       <parameter class="javax.management.MBeanServer"><inject bean="JMXKernel" property="mbeanServer"/></parameter>
+     </constructor>
+     <depends>WebServer</depends>
