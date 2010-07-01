@@ -92,6 +92,9 @@ if [ "x$JBOSS_CLOUD_DEPLOYMENT" != "x" ]; then
             echo "No JBOSS_JGROUPS_S3_PING_BUCKET provided."
             exit 1
         fi
+
+        # For EC2 use by default RCP JGroups stack
+        JAVA_OPTS="$JAVA_OPTS -Djboss.default.jgroups.stack=tcp"
     else
         JBOSSCONF=${JBOSSCONF:-"cluster"}
     fi

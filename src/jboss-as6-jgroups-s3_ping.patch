@@ -1,20 +1,20 @@
 diff -Naur jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml
 --- jboss-6.0.0.20100429-M3/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-05-02 17:39:02.000000000 +0200
-+++ jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-05-10 12:57:54.959799799 +0200
-@@ -25,6 +25,7 @@
-              mcast_port="${jboss.jgroups.udp.mcast_port:45688}"
-              mcast_addr="${jboss.jgroups.udp.mcast_addr,jboss.partition.udpGroup:228.11.11.11}"
-              bind_port="${jboss.jgroups.udp.bind_port:55200}"
-+             ip_mcast="false"
-              tos="8"
-              ucast_recv_buf_size="20000000"
-              ucast_send_buf_size="640000"
-@@ -54,7 +55,7 @@
-              oob_thread_pool.keep_alive_time="1000"
-              oob_thread_pool.queue_enabled="false"
-              oob_thread_pool.rejection_policy="discard"/>
--          <PING timeout="2000" num_initial_members="3"/>
-+          <S3_PING access_key="${jboss.jgroups.s3_ping.access_key:}" secret_access_key="${jboss.jgroups.s3_ping.secret_access_key:}" location="${jboss.jgroups.s3_ping.bucket:}" />
-           <MERGE2 max_interval="100000" min_interval="20000"/>
-           <FD_SOCK/>
-           <FD timeout="6000" max_tries="5"/>
++++ jboss-6.0.0.20100429-M3-work/server/cluster-ec2/deploy/cluster/jgroups-channelfactory.sar/META-INF/jgroups-channelfactory-stacks.xml	2010-07-01 08:57:31.919109802 +0200
+@@ -257,12 +257,13 @@
+ 		           oob_thread_pool.keep_alive_time="1000"
+ 		           oob_thread_pool.queue_enabled="false"
+ 		           oob_thread_pool.rejection_policy="discard"/>
+-		      <!-- Alternative 1: multicast-based automatic discovery. -->   
+-            <MPING timeout="3000"
++            <S3_PING access_key="${jboss.jgroups.s3_ping.access_key:}" secret_access_key="${jboss.jgroups.s3_ping.secret_access_key:}" location="${jboss.jgroups.s3_ping.bucket:}" />
++            <!-- Alternative 1: multicast-based automatic discovery. -->   
++            <!--<MPING timeout="3000"
+                    num_initial_members="3"
+                    mcast_addr="${jgroups.tcp.mping_mcast_addr,jboss.partition.udpGroup:230.11.11.11}"
+                    mcast_port="${jgroups.tcp.mping_mcast_port:45700}"
+-                   ip_ttl="${jgroups.udp.ip_ttl:2}"/>            
++                   ip_ttl="${jgroups.udp.ip_ttl:2}"/>-->            
+             <!-- Alternative 2: non multicast-based replacement for MPING. Requires a static configuration
+                  of *all* possible cluster members.
+             <TCPPING timeout="3000"
