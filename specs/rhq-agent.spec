@@ -2,11 +2,11 @@
 
 Summary:        RHQ Agent
 Name:           rhq-agent
-Version:        3.0.0.B06
+Version:        3.0.0
 Release:        1
 License:        LGPL
 BuildArch:      noarch
-Source0:        http://downloads.sourceforge.net/project/rhq/rhq/rhq-%{version}/rhq-enterprise-server-%{version}.zip
+Source0:        http://downloads.sourceforge.net/project/rhq/rhq/rhq-%{version}/rhq-server-%{version}.zip
 Source1:        rhq-agent.init
 Source2:        rhq-agent-install.sh
 Group:          Applications/System
@@ -65,6 +65,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Thu Jul 08 2010 Marek Goldmann 3.0.0
+- Upgrade to upstream 3.0.0 release
+
 * Tue Jun 29 2010 Marek Goldmann 3.0.0.B06
 - Upgrade to upstream 3.0.0.B06 release
 

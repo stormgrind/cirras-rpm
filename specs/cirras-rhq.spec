@@ -2,7 +2,7 @@
 
 Summary:        RHQ Helper for CirrAS
 Name:           cirras-rhq
-Version:        3.0.0.B06
+Version:        3.0.0
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -46,6 +46,9 @@ echo '* * * * * /usr/share/%{name}/import-servers.sh >> /var/log/%{name}/import.
 /
 
 %changelog
+* Thu Jul 08 2010 Marek Goldmann 3.0.0
+- Upgrade to upstream 3.0.0 release
+
 * Fri May 05 2010 Marek Goldmann 3.0.0.B05
 - Upgrade to upstream 3.0.0.B05 release
 
