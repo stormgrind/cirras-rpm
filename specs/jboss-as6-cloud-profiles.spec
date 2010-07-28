@@ -1,18 +1,17 @@
 %define jboss_name jboss-as6
-%define jboss_version 6.0.0.M3
-%define jboss_version_full 6.0.0.20100429-M3
+%define jboss_version 6.0.0.M4
+%define jboss_version_full 6.0.0.20100721-M4
 %define jgroups_version 2.10.0.CR1
 %define mod_cluster_version 1.1.0.CR3
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
 Name:           jboss-as6-cloud-profiles
-Version:        6.0.0.M3
+Version:        %{jboss_version}
 Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
 Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
-Source1:        jboss-as6-%{version}-mod_cluster-%{mod_cluster_version}-integration.patch
 Source2:        %{jboss_name}-jbossws-host.patch
 Source3:        %{jboss_name}-jgroups-s3_ping.patch
 Source4:        %{jboss_name}-jvm-route.patch
@@ -66,7 +65,7 @@ install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
 echo "JBOSS_CLOUD_DEPLOYMENT=true" > $RPM_BUILD_ROOT/etc/sysconfig/%{name}
 
 cd $RPM_BUILD_ROOT/opt/%{jboss_name}
-patch -p1 < %{SOURCE1}
+#patch -p1 < %{SOURCE1}
 patch -p1 < %{SOURCE2}
 patch -p1 < %{SOURCE3}
 patch -p1 < %{SOURCE4}
@@ -79,6 +78,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Wed Jul 28 2010 Marek Goldmann 6.0.0.M4-1
+- Upgrade to upstream 6.0.0.M4 release
+
 * Fri May 05 2010 Marek Goldmann 6.0.0.M3-1
 - Upgrade to upstream 6.0.0.M3 release
 

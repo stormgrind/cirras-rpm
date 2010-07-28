@@ -1,8 +1,8 @@
-%define jboss_version_full 6.0.0.20100429-M3
+%define jboss_version_full 6.0.0.20100721-M4
 
 Summary:        JBoss Application Server
 Name:           jboss-as6
-Version:        6.0.0.M3
+Version:        6.0.0.M4
 Release:        1
 License:        LGPL
 BuildArch:      noarch
@@ -59,6 +59,9 @@ rm -Rf $RPM_BUILD_ROOT
 /
 
 %changelog
+* Wed Jul 28 2010 Marek Goldmann 6.0.0.M4-1
+- Upgrade to upstream 6.0.0.M4 release 
+
 * Fri May 05 2010 Marek Goldmann 6.0.0.M3-1
 - Upgrade to upstream 6.0.0.M3 release
 
