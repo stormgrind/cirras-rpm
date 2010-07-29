@@ -19,7 +19,7 @@ if (discovered_httpd_servers != null && discovered_httpd_servers.size() > 0) {
         print(" - " + discovered_httpd_server.name);
         print("   Reconfiguring agent...");
 
-        var address = discovered_httpd_server.name.match(new RegExp("^[\\w\\-]+", "g"))[0];
+        var address = discovered_httpd_server.name.match(new RegExp("^[\\w\\-\\.]+", "g"))[0];
         var httpd = ProxyFactory.getResource(discovered_httpd_server.id);
         var httpd_configuration = httpd.getPluginConfiguration();
 
