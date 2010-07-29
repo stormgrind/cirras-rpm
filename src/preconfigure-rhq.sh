@@ -5,10 +5,11 @@ echo "Preconfiguring RHQ server..."
 [ -f /etc/sysconfig/boxgrinder ]   && . /etc/sysconfig/boxgrinder
 [ -f /etc/sysconfig/rhq ]          && . /etc/sysconfig/rhq
 
+export RHQ_SERVER_JAVA_HOME=/usr/lib/jvm/java-1.6.0/
 DATABASE_NAME=rhq
 DATABASE_USER=rhq
-DATABASE_NAME=rhq
 DATABASE_PASSWORD=`head -c10 /dev/urandom | md5sum | head -c30`
+DATABASE_PASSWORD_ENCODED=`$RHQ_HOME/bin/generate-db-password.sh $DATABASE_PASSWORD | awk '{ print $3 }'`
 
 IP_ADDRESS=`ip addr list eth0 | grep "inet " | cut -d' ' -f6 | cut -d/ -f1`
 
@@ -55,7 +56,7 @@ else
 fi
 
 echo "Reconfiguring rhq-server.properties file..."
-sed s/#LOCAL_IP#/$LOCAL_IP/g /usr/share/rhq/rhq-server.properties | sed s/#PUBLIC_IP#/$PUBLIC_IP/g | sed s/#DATABASE_USER#/$DATABASE_USER/g | sed s/#DATABASE_PASSWORD#/$DATABASE_PASSWORD/g | sed s/#DATABASE_NAME#/$DATABASE_NAME/g > $RHQ_HOME/bin/rhq-server.properties
+sed s/#LOCAL_IP#/$LOCAL_IP/g /usr/share/rhq/rhq-server.properties | sed s/#PUBLIC_IP#/$PUBLIC_IP/g | sed s/#DATABASE_USER#/$DATABASE_USER/g | sed s/#DATABASE_PASSWORD#/$DATABASE_PASSWORD_ENCODED/g | sed s/#DATABASE_NAME#/$DATABASE_NAME/g > $RHQ_HOME/bin/rhq-server.properties
 echo "File reconfigured."
 
 echo "Changing permissions in $RHQ_HOME directory..."
