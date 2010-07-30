@@ -6,7 +6,7 @@ diff -Naur jboss-6.0.0.20100721-M4/server/cluster-ec2/deploy/cluster/jgroups-cha
  		           oob_thread_pool.queue_enabled="false"
  		           oob_thread_pool.rejection_policy="discard"/>
 +
-+            <S3_PING access_key="${jboss.jgroups.s3_ping.access_key:}" secret_access_key="${jboss.jgroups.s3_ping.secret_access_key:}" prefix="cirras-1.0.0.beta3" />
++            <S3_PING access_key="${jboss.jgroups.s3_ping.access_key:}" secret_access_key="${jboss.jgroups.s3_ping.secret_access_key:}" prefix="cirras-beta3" />
 +
  		      <!-- Alternative 1: multicast-based automatic discovery. -->   
 -            <MPING timeout="3000"
