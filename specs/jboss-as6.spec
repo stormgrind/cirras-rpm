@@ -1,13 +1,15 @@
-%define jboss_version_full 6.0.0.20100721-M4
+#%define jboss_version_full 6.0.0.20100721-M4
+%define jboss_version_full 6.0.0-SNAPSHOT
 
 Summary:        JBoss Application Server
 Name:           jboss-as6
-Version:        6.0.0.M4
+Version:        6.0.0.SNAPSHOT.20100818.r107578
 Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
-Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
+Source0:        http://repo.oddthesis.org/cirras/zip/jboss-as-distribution-6.0.0-SNAPSHOT-20100818-rev-107578.zip
+#Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
 Source1:        %{name}.init
 Requires:       shadow-utils
 Requires:       coreutils

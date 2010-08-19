@@ -1,7 +1,8 @@
 %define jboss_name jboss-as6
-%define jboss_version 6.0.0.M4
-%define jboss_version_full 6.0.0.20100721-M4
+%define jboss_version 6.0.0.SNAPSHOT.20100818.r107578
+%define jboss_version_full 6.0.0-SNAPSHOT
 %define jgroups_version 2.10.0.GA
+
 #%define mod_cluster_version 1.1.0.CR3
 
 Summary:        The JBoss AS 6 cloud profiles (cluster and group)
@@ -11,7 +12,8 @@ Release:        1
 License:        LGPL
 BuildArch:      noarch
 Group:          Applications/System
-Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
+Source0:        http://repo.oddthesis.org/cirras/zip/jboss-as-distribution-6.0.0-SNAPSHOT-20100818-rev-107578.zip
+#Source0:        http://internap.dl.sourceforge.net/sourceforge/jboss/jboss-as-distribution-%{jboss_version_full}.zip
 Source2:        %{jboss_name}-jbossws-host.patch
 Source3:        %{jboss_name}-jgroups-s3_ping.patch
 Source4:        %{jboss_name}-jvm-route.patch
