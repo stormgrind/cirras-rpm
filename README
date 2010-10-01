@@ -6,4 +6,12 @@ Before you begin, please add:
 
 to ~/.rpmmacros
 
+-----
+
+Gems necessary to use:
+
+  rake
+  net-ssh
+  net-sftp
+
 
