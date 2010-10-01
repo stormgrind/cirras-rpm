@@ -14,4 +14,7 @@ Gems necessary to use:
   net-ssh
   net-sftp
 
+Packages necessary to install:
 
+  java-1.6.0-openjdk
+  java-1.6.0-openjdk-devel
