@@ -8,13 +8,24 @@ to ~/.rpmmacros
 
 -----
 
-Gems necessary to use:
+Some extra items are necessary to add to a meta-appliance 
+to build cirras-rpm:
 
-  rake
-  net-ssh
-  net-sftp
+  * Gems necessary to use:
 
-Packages necessary to install:
+    rake
+    net-ssh
+    net-sftp
+  
+  * Packages necessary to install:
+  
+    (rhq-agent)
+    java-1.6.0-openjdk-devel
+  
+    (qemu)
+    zlib-devel 
+    SDL-devel
 
-  java-1.6.0-openjdk
-  java-1.6.0-openjdk-devel
+    (cirras-management)
+    libxml2-devel
+    libxslt-devel
