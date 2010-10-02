@@ -8,7 +8,7 @@
 
 Summary:    JBoss mod_cluster for Apache httpd
 Name:       mod_cluster
-Version:    1.1.0.CR3
+Version:    1.1.0.Final
 Release:    1
 License:    LGPL
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
