@@ -26,15 +26,15 @@ rm -Rf $RPM_BUILD_ROOT
 
 cd %{_topdir}/BUILD
 
-install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2
-install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster
-install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/deployers
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/deployers
+install -d -m 755 $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/deployers
 
 
 # copy profiles
-cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/deployers/
-cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/deployers/
-cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/deployers/
+cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer/ $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster-ec2/deployers/
+cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer/ $RPM_BUILD_ROOT/opt/%{jboss_name}/server/cluster/deployers/
+cp -R torquebox-%{torquebox_version}/jboss/server/all/deployers/torquebox.deployer/ $RPM_BUILD_ROOT/opt/%{jboss_name}/server/group/deployers/
 
 %clean
 rm -Rf $RPM_BUILD_ROOT
