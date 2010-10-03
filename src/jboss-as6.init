@@ -42,6 +42,8 @@ fi
 
 [ -f /etc/sysconfig/${NAME}-cloud-profiles ] && . /etc/sysconfig/${NAME}-cloud-profiles
 
+[ -f /etc/sysconfig/${NAME}-torquebox ] && . /etc/sysconfig/${NAME}-torquebox
+
 export JAVA_HOME=${JAVA_HOME:-"/usr/lib/jvm/jre"}
 
 # define where JBoss is - this is the directory containing directories log, bin, conf etc
@@ -98,6 +100,8 @@ if [ "x$JBOSS_CLOUD_DEPLOYMENT" != "x" ]; then
     else
         JBOSSCONF=${JBOSSCONF:-"cluster"}
     fi
+else
+    JBOSSCONF=${JBOSSCONF:-"all"}
 fi
 
 IP_ADDRESS=`ip addr list eth0 | grep "inet " | cut -d' ' -f6 | cut -d/ -f1`

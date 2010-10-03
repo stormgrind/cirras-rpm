@@ -30,6 +30,12 @@ install -d -m 755 $RPM_BUILD_ROOT/opt/
 # copy jruby
 cp -R torquebox-%{torquebox_version}/jruby $RPM_BUILD_ROOT/opt/
 
+install -d -m 755 $RPM_BUILD_ROOT/etc/sysconfig
+
+echo "JRUBY_HOME=/opt/jruby"  > $RPM_BUILD_ROOT/etc/sysconfig/%{jboss_name}-torquebox
+
+chmod 600 $RPM_BUILD_ROOT/etc/sysconfig/%{jboss_name}-torquebox
+
 %clean
 rm -Rf $RPM_BUILD_ROOT
 
